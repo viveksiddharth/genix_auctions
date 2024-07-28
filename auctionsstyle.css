@@ -1,0 +1,184 @@
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    height:100vh;
+}
+h1{
+    padding-top: 10px;
+    font-size: 40px;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0, 0.4);
+}
+.heading{
+    position:fixed;
+    width:100%;
+    padding: 30px;
+    background-color: rgb(255, 218, 224);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.otherdet{
+    position: absolute;
+    right: 0;
+}
+
+button.otherbut{
+    background-color:  rgb(255, 218, 224);
+    outline: none;
+    border: none;
+    font-weight: 500px;
+    padding:10px;
+    margin:10px;
+    font-size: large;
+}
+button.otherbut{
+    cursor:pointer;
+}
+
+.auction{
+    margin:30px;
+    margin-top:200px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.aucitems{
+    margin : 10px;
+    padding: 10px;
+    width:270px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px 2px lightgray;
+}
+
+ .aucitems:hover{
+    box-shadow: 0px 0px 5px 5px lightgray;
+    border: 2px solid blue 
+}
+
+img{
+    display:flex;
+    align-items: center;
+    width:250px;
+    height:190px;
+    object-fit: cover;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+p.livauc{
+    background-image: linear-gradient(to right , green,lightgreen);
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:45%;
+}
+
+p{
+    color:black;
+    margin:5px;
+    padding:5px;
+}
+
+.amnt{
+    margin-right:2px;
+    margin-left:50px;
+}
+
+.additem{
+    margin : 10px;
+    padding: 10px;
+    width:270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px 2px lightgray;
+}
+
+.additem:hover{
+    cursor: pointer;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin:20px;
+    padding:20px;
+    width: 100%;
+} 
+
+label{
+    padding:3px;
+}
+input, textarea{
+    border-radius: 8px;
+    padding: 12px 10px;
+    margin-bottom: 10px;
+    width:400px;
+    outline: none;
+} 
+
+ button.addnewitem , button.removebut{
+    margin: 5px;
+    padding:10px;
+    border-radius: 5px;
+    background-image: linear-gradient(to right,rgb(52, 101, 248),rgb(99, 157, 238));
+    color : white;
+    font-weight: 400;
+}
+
+button.addnewitem , button.removebut{
+    box-shadow: 5px 5px 5px lightgray;
+    cursor:pointer;
+
+}
+
+.dropdown-content {
+    display:flex;
+    flex-direction:column;
+    position: absolute;
+    top:80px;
+    right:0;
+    width:200px;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+    text-align: center;
+}
+
+.dropdown-content button{
+    padding:9px;
+    background-color:  rgb(255, 218, 224);
+    outline: none;
+    border: none;
+    padding:10px;
+    font-size: large;
+
+}
+
+.dropdown-content button:hover{
+    background-color:  rgb(247, 184, 194);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+button.otherbut:hover{
+    background-color:  rgb(247, 184, 194);
+    border-radius: 10px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myappmainpage">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genix Auctions Main</title>
+    <link rel="stylesheet" href="mainpagestyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="myctrl1" ng-init="display()">
+    <div class="heading">
+        <h1>Genix Auctions</h1>
+        <div class="otherdet">
+            <button class="otherbut" ng-click="openauctions()">Auctions</button>
+            <button class="otherbut" ng-click="openbidding()"><strong>Bidding</strong></button>
+            <button class="otherbut" ng-click="openaboutus()">About us</button>
+            <button class="otherbut" ng-click="openlanguage()">English</button>
+            <button class="otherbut" ng-click="openprofile()">Profile
+            </button>
+        </div>
+        <div class="dropdown-content" ng-show="showDropdown">
+            <button ng-click="editPersonalInfo()">Edit Personal Information</button>
+            <button ng-click="logout()">Logout</button>
+        </div>
+
+    </div>
+    <div class="welcomemsg">
+       <p> Welcome <span>{{name}}!</span> </p>
+    </div>
+    <div class="search-bar">
+        <input type="text" ng-model="searchQuery" placeholder="Search for items..." />
+    </div>
+    <div class="products">
+         <div class="biditems" ng-repeat="item in items  | filter:searchQuery | limitTo: limit">
+            <img ng-if="item.image" ng-src="data:image/jpeg;base64,{{item.image}}" alt="{{item.name}}">
+            <table>
+                <tr>
+                    <td colspan="2"><p class="livauc">Live Auction</p></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong><p>{{item.name}}</p></strong></td>
+                </tr>
+                <tr>
+                    <td><p>Minimum Bid</p></td>
+                    <td class="amnt"><strong>${{item.minbid}}</strong></td>
+                </tr>
+                <tr>
+                    <td><p>Current Bid</p></td>
+                    <td class="amnt"><strong>${{item.curbid}}</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>Ends in: {{item.dur}}</p></td>
+                </tr>
+            </table>
+            <button class="bidbut" ng-click="gotobid(item.AID)">Bid now ></button>
+         </div>
+         <div class="loaddiv">
+            <button class="loadbut" ng-click="toggleItems()">{{ showAll ? 'Hide' : 'Load More' }}</button>
+         </div>
+    </div>
+</body>
+<script src="mainpagescript.js"></script>
+</html>

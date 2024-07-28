@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genix Auctions - Login</title>
+    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="LoginController">
+    <div class="heading">
+        <h1>Genix Auctions</h1>
+    </div>
+    <div class="details">
+        <div class="logindiv">
+            <div class="formc login-container" ng-show="showlogin">
+                <h1>Login</h1>
+                <p>Welcome back. Enter your credentials to access your account</p>
+                <form ng-submit="login()">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" ng-model="toemail1" required>
+                    
+                    <label for="password">Password</label>
+                    <input ng-style="passstyle" type="password" id="password" name="password" ng-model="password1" required>
+                    <div class="error" ng-show="error">Please enter correct password</div>
+                    
+                    <button class="conbut" type="submit">Continue</button>
+                    
+                    <div class="alternative-signup">
+                        <div class="linec">
+                            <div class="line"></div><span>or sign up with</span><div class="line"></div>
+                        </div>
+                        <button type="button" ng-click="signInWith('Google')" class="onl"><i class="fab fa-google icon"></i>Google</button>
+                        <button type="button" ng-click="signInWith('Apple')" class="onl"><i class="fab fa-apple icon"></i>Apple</button>
+                        <button type="button" ng-click="signInWith('Facebook')" class="onl"><i class="fab fa-facebook-f icon"></i>Facebook</button>
+                    </div>
+                    <p>Don't have an Account? <button type="button" class="changebut" ng-click="gotosignup()">Sign up here</button></p>
+                </form>
+            </div>
+            <div class="formc signup-container" ng-show="showsignup">
+                <h1>Sign Up</h1>
+                <p>Enter your credentials to create your account</p>
+                <form ng-submit="signup()">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" ng-model="fname" required>
+        
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" ng-model="lname" required>
+        
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email2" name="email" ng-model="toemail2" required>
+                    
+                    <label for="password">Password</label>
+                    <input type="password" id="password2" name="password" ng-model="password2" required>
+                    <button class="conbut" type="submit">Continue</button>
+                    <div class="alternative-signup">
+                        <div class="linec">
+                            <div class="line"></div><span>or sign up with</span><div class="line"></div>
+                        </div>
+                        <button type="button" ng-click="signInWith('Google')" class="onl"><i class="fab fa-google icon"></i>Google</button>
+                        <button type="button" ng-click="signInWith('Apple')" class="onl"><i class="fab fa-apple icon"></i>Apple</button>
+                        <button type="button" ng-click="signInWith('Facebook')" class="onl"><i class="fab fa-facebook-f icon"></i>Facebook</button>
+                    </div>
+                    <p>Already have an Account? <button type="button" class="changebut" ng-click="gotosignin()">Sign in here</button></p>
+                </form>
+            </div>
+        </div>
+        <div class="forimage"><img src="bgforlogin.jpg" alt="Background Image"></div>
+    </div>
+
+    <script src="loginscript.js"></script>
+</body>
+</html>

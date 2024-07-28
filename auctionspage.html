@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="auctionapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auctions</title>
+    <link rel="stylesheet" href="auctionsstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+<body ng-controller="myctrl1" ng-init="display3()">
+    <div class="heading">
+        <h1>Genix Auctions</h1>
+        <div class="otherdet">
+            <button class="otherbut" ng-click="openauctions()"><strong>Auctions</strong></button>
+            <button class="otherbut" ng-click="openbidding()">Bidding</button>
+            <button class="otherbut" ng-click="openaboutus()">About us</button>
+            <button class="otherbut" ng-click="openlanguage()">English</button>
+            <button class="otherbut" ng-click="openprofile()">Profile</button>
+        </div>
+        <div class="dropdown-content" ng-show="showDropdown">
+            <button ng-click="editPersonalInfo()">Edit Personal Information</button>
+            <button ng-click="logout()">Logout</button>
+        </div>
+    </div>
+    <div class="auction">
+        <div class="aucitems" ng-repeat="item in items">
+            <img ng-if="item.image" ng-src="data:image/jpeg;base64,{{item.image}}" alt="{{item.name}}">
+            <table>
+                <tr>
+                    <td colspan="2"><p class="livauc">Live Auction</p></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong><p>{{item.name}}</p></strong></td>
+                </tr>
+                <tr>
+                    <td><p>Minimum Bid</p></td>
+                    <td class="amnt"><strong>{{item.minbid}}$</strong></td>
+                </tr>
+                <tr>
+                    <td><p>Current Bid</p></td>
+                    <td class="amnt"><strong>{{item.curbid}}$</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>Ends in: {{item.dur}}</p></td>
+                </tr>
+            </table>
+            <button ng-click="removeitem(item.AID)" class="removebut">Remove Item</button>
+        </div>
+        <div class="adddetails" ng-show="adddetails">
+            <form ng-submit="uploadItem()">
+                <input type="text" ng-model="name" placeholder="Item Name" required><br>
+                <input type="number" ng-model="minbid" placeholder="Minimum Bid" required><br>
+                <input type="date" ng-model="end_date" placeholder="End Date" required><br>
+                <textarea ng-model="description" placeholder="Description" required></textarea><br>
+                <input type="file" id="imageInput" accept="image/*" required><br>
+                <button type="submit" class="addnewitem">Submit</button>
+            </form>
+        </div>
+        <div ng-show="addnew" class="additem" ng-click="additem()"><i class="fas fa-plus plus-icon"></i></div>
+    </div>
+
+</body>
+<script src="auctionscript.js"></script>
+</html>

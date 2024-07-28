@@ -1,0 +1,126 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'sans-serif';
+}
+
+body{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: medium;
+    width: 100%; 
+    margin-left: 10px;
+}
+
+.heading{
+    position: absolute;
+    left:0;
+    padding-top:20px;
+    width:100%;
+    border: 1px solid lightgray;
+    height:100px;
+    color: rgb(17, 17, 17);
+    background-color: azure;
+}
+
+h1{
+    font-weight: 500;
+}
+
+.details{
+    margin-top:100px;
+    display:flex;
+    flex-direction: row;
+    height:100vh
+}
+
+.formc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:20px;
+    border-radius: 8px;
+   
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin:20px;
+    padding:20px;
+    width: 100%;
+} 
+
+label{
+    padding:3px;
+}
+input{
+    border-radius: 8px;
+    padding: 12px 10px;
+    margin-bottom: 20px;
+    width:400px;
+    outline: none;
+} 
+
+ button.conbut{
+    margin: 10px;
+    padding:10px;
+    border-radius: 5px;
+    background-image: linear-gradient(to right,rgb(52, 101, 248),rgb(99, 157, 238));
+    color : white;
+    font-weight: 400;
+}
+
+
+.linec{
+    display: flex;
+    flex-direction: row;
+    margin:10px
+}
+.line{
+    flex-grow: 1;
+    background-color: black;
+    height:1px;
+    margin: 0px 10px;
+}
+
+.onl{
+    padding: 3px 30px;
+    margin:20px 5px;
+    background-image: linear-gradient(to right , white,lightgray);
+    border-radius: 5px;
+}
+
+button:hover{
+    box-shadow: 2px 2px 2px black;
+    cursor: pointer;
+}
+
+p{
+    margin:10px;
+    max-width: 350px;
+    color: gray;
+    font-weight: 200;
+}
+
+.forimage{
+    width:400px;
+    height:600px;
+    margin-left:130px;
+    margin-top:50px
+}
+
+button.changebut{
+    outline:none;
+    border:none;
+    background-color: white;
+    color:rgb(65, 65, 218);
+    font-weight: 500px;
+}
+
+button.changebut:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 0px white;
+}

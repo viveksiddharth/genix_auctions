@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="itemapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="itempage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="myctrl1" ng-init="display2()">
+    <div class="heading">
+        <h1>Genix Auctions</h1>
+        <div class="otherdet">
+            <button class="otherbut" ng-click="openauctions()">Auctions</button>
+            <button class="otherbut" ng-click="openbidding()">Bidding</button>
+            <button class="otherbut" ng-click="openaboutus()">About us</button>
+            <button class="otherbut" ng-click="openlanguage()">English</button>
+            <button class="otherbut" ng-click="openprofile()">Profile</button>
+        </div>
+        <div class="dropdown-content" ng-show="showDropdown">
+            <button ng-click="editPersonalInfo()">Edit Personal Information</button>
+            <button ng-click="logout()">Logout</button>
+        </div>
+    </div>
+    <div class="welcomemsg">
+       <a href="mainpage.html">Back to Catalog</a>
+    </div>
+    <div class="productdet">
+        <div class="productimg">
+            <img ng-if="item.image" ng-src="{{item.image}}" alt="{{item.name}}">
+            <table>
+                <tr>
+                    <td colspan="2"><p class="livauc">Live Auction</p></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><strong><p>{{item.name}}</p></strong></td>
+                </tr>
+                <tr>
+                    <td><p>Minimum Bid</p></td>
+                    <td class="amnt"><strong>${{item.minbid}}</strong></td>
+                </tr>
+                <tr>
+                    <td><p>Current Bid</p></td>
+                    <td class="amnt"><strong>${{item.curbid}}</strong></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p>Ends in: {{item.dur}}</p></td>
+                </tr>
+            </table>
+        </div>
+        <div class="desandrev">
+            <div class="description">
+                <h2>Description</h2>
+                <hr>
+                <p>{{item.description}}</p>
+            </div>
+            <div class="rev">
+                <h2>Reviews</h2>
+                <hr>
+                <div class="reviews" ng-repeat="review in reviews">
+                    <h3>{{review.fname}}</h3>
+                    <p>{{review.rating}}</p>
+                    <p>{{review.review}}</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="biddinghistory">
+            <ul>
+                <li ng-repeat="bid in bids">{{bid.fname}} bids <strong>${{bid.amount}}</strong></li>
+            </ul>
+
+            <Button class="bidbut" ng-show="dshowbid" ng-click="showbiddialog()">Bid Now</Button>
+            <div class="bidnowdialog" ng-show="showbid">
+                <label for="bidamount" name="bidamount">Bid Amount</label>
+                <input id="bidamount" ng-style="errstyle" class="bidamount" type="number" placeholder="Enter amount" ng-model="bidamnt">
+                <p class="errmsg" ng-show="errmsg">{{errmessage}}</p>
+                
+                <button class="bidbut" ng-click="addbid()">Bid now</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="itempagescript.js"></script>
+</html>
